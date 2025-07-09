@@ -139,3 +139,35 @@ body {
     padding: 15px 20px;
   }
 }
+@media (max-width: 768px) {
+  .container {
+    border-radius: 0;   /* remove border radius for full-bleed on small screens */
+    min-height: 100vh;  /* make sure it fills height */
+  }
+
+  .main-content {
+    padding: 30px 15px; /* reduce padding */
+  }
+
+  .birthday-title {
+    font-size: 2rem;
+  }
+
+  .message {
+    font-size: 1.1rem;
+  }
+
+  .birthday-quote {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* smaller columns on mobile */
+  }
+
+  .footer {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}
