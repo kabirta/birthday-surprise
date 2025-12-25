@@ -34,49 +34,12 @@
       z-index: -2;
     }
     
-    /* Navigation Tabs */
-    .nav-tabs {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 50px;
-      padding: 5px;
-      z-index: 1000;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tab-btn {
-      padding: 10px 25px;
-      border-radius: 50px;
-      font-family: 'Sriracha', serif;
-      font-size: 16px;
-      background: transparent;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .tab-btn.active {
-      background: rgba(212, 106, 132, 0.7);
-      color: #fff;
-      box-shadow: 0 0 15px rgba(212, 106, 132, 0.5);
-    }
-    
-    .tab-btn:hover:not(.active) {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
     /* Card Containers */
     .card-container {
       display: none;
       padding: 20px;
       max-width: 800px;
-      margin: 80px auto 40px;
+      margin: 40px auto 40px;
     }
     
     .card-container.active {
@@ -195,51 +158,6 @@
       line-height: 1.6;
     }
     
-    /* Birthday Card Specific Styles */
-    .birthday-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      margin: 30px auto;
-      max-width: 500px;
-    }
-    
-    .birthday-text {
-      font-family: 'Sriracha', cursive;
-      font-size: 3rem;
-      color: #fff;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-      margin: 20px 0;
-      position: relative;
-    }
-    
-    .birthday-text::after {
-      content: "";
-      display: block;
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to right, #ff6f91, #ffd1dc);
-      margin: 15px auto;
-      border-radius: 2px;
-    }
-    
-    .birthday-message {
-      font-family: 'Handlee', cursive;
-      font-size: 1.5rem;
-      line-height: 1.6;
-      color: #fff;
-      text-align: center;
-      margin: 20px 0;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      border-left: 3px solid #ff6f91;
-    }
-    
     /* Common Button Styles */
     button {
       font-family: 'Sriracha', serif;
@@ -280,25 +198,8 @@
     
     /* Responsive Design */
     @media (max-width: 768px) {
-      .birthday-text {
-        font-size: 2.5rem;
-      }
-      
-      .birthday-message {
-        font-size: 1.2rem;
-      }
-      
-      .nav-tabs {
-        top: 10px;
-      }
-      
-      .tab-btn {
-        padding: 8px 15px;
-        font-size: 14px;
-      }
-      
       .card-container {
-        margin-top: 70px;
+        margin-top: 40px;
       }
       
       /* Adjusted love card for mobile */
@@ -321,15 +222,6 @@
     }
     
     @media (max-width: 480px) {
-      .birthday-text {
-        font-size: 2rem;
-      }
-      
-      .tab-btn {
-        padding: 6px 12px;
-        font-size: 13px;
-      }
-      
       /* Further adjustments for very small screens */
       .kotak {
         padding: 15px;
@@ -381,12 +273,6 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Tabs -->
-  <div class="nav-tabs">
-    <button class="tab-btn active" onclick="showCard('love-card')">Love Card</button>
-    <button class="tab-btn" onclick="showCard('birthday-card')">Birthday Card</button>
-  </div>
-  
   <!-- Floating Elements -->
   <div class="floating-elements"></div>
   
@@ -406,17 +292,13 @@
   <source src="./095992889-male-singing-i-love-you-6.m4a" type="audio/mpeg">
 </audio>
 
-<audio id="birthdaySound" preload="auto">
-  <source src="./38-Michael-Riepen-Happy-Birthday(chosic.com).mp3" type="audio/mpeg">
-</audio>
-
   
   <!-- Love Card Container -->
   <div id="love-card" class="card-container active">
     <div class="kotak animate-pop-in">
       <div class="stiker">
         <img 
-          src="./images/pic7.jpg"
+          src="./photos/pic1.jpeg"
           alt="Heart" 
           class="pulse" 
         />
@@ -427,28 +309,7 @@
         <p id="pesanAkhir">Because... I love you more than I said,<br>I love you more than you know,<br>I love you more when your<br>day didn't go so well,<br>I love you more when you cried,<br>I love you more at your lowest,<br>and I love you in every situation ᡣ𐭩<br>😍💐🌹💖❤️</p>
       </div>
       <div class="tombol">
-        <button onclick="createHearts(); playLoveSound()">Send Love</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Birthday Card Container -->
-  <div id="birthday-card" class="card-container">
-    <div class="birthday-card animate-pop-in">
-      <div class="stiker">
-        <img 
-          src="https://www.onceuponachef.com/images/2012/11/Vanilla-Birthday-Cake-18-1200x1480.jpg" 
-          alt="Cake" 
-          class="pulse"
-          style="max-width: 100%; height: auto; border-radius: 10px;"
-        />
-      </div>
-      <div class="birthday-text">Happy Birthday 🎂<br>My Love!</div>
-      <div class="birthday-message">
-        Wishing you the most beautiful day filled with joy, laughter, and all the things that make you smile. May this year bring you endless happiness and dreams come true. You deserve all the love and joy in the world! 🎉🎁💖
-      </div>
-      <div class="tombol">
-        <button onclick="createFloatingPics(); playBirthdaySound()">Celebrate!</button>
+        <button onclick="sendLove()">Send Love</button>
       </div>
     </div>
   </div>
@@ -456,10 +317,9 @@
   <script>
     // Audio elements
     const loveSound = document.getElementById('loveSound');
-    const birthdaySound = document.getElementById('birthdaySound');
     const soundIndicator = document.getElementById('soundIndicator');
     
-    // Common background for both cards
+    // Floating image sources
     const imageSources = [
       "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
@@ -469,39 +329,14 @@
       "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80",
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-     "./images/pic1.jpg",
-  "./images/pic2.jpg",
-  "./images/pic3.jpg",
-  "./images/pic4.jpg",
-  "./images/pic5.jpg",
-  "./images/pic6.jpg",
-  "./images/pic7.jpg"
-     
+      "./photos/pic1.jpeg",
+      "./photos/pic2.jpeg",
+      "./photos/pic3.jpeg",
+      "./photos/pic4.jpeg"
     ];
-    
-    // Function to switch between cards
-    function showCard(cardId) {
-      // Hide all cards
-      document.querySelectorAll('.card-container').forEach(card => {
-        card.classList.remove('active');
-      });
-      
-      // Show selected card
-      document.getElementById(cardId).classList.add('active');
-      
-      // Update active tab
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
-    }
     
     // Play "I love you" sound
     function playLoveSound() {
-      // Stop birthday sound if playing
-      birthdaySound.pause();
-      birthdaySound.currentTime = 0;
-      
       // Play love sound
       loveSound.currentTime = 0;
       loveSound.play();
@@ -514,28 +349,9 @@
       }, 3000);
     }
     
-    // Play Happy Birthday music
-    function playBirthdaySound() {
-      // Stop love sound if playing
-      loveSound.pause();
-      loveSound.currentTime = 0;
-      
-      // Play birthday sound
-      birthdaySound.currentTime = 0;
-      birthdaySound.play();
-      
-      // Show sound indicator
-      soundIndicator.textContent = "🔊 Playing: Happy Birthday Song";
-      soundIndicator.style.display = 'block';
-      setTimeout(() => {
-        soundIndicator.style.display = 'none';
-      }, 3000);
-    }
-    
-    // Toggle mute for both sounds
+    // Toggle mute for sound
     function toggleMute() {
       loveSound.muted = !loveSound.muted;
-      birthdaySound.muted = !birthdaySound.muted;
       
       // Update button text
       const muteBtn = document.querySelector('.audio-controls button');
@@ -546,8 +362,12 @@
     function stopAllSounds() {
       loveSound.pause();
       loveSound.currentTime = 0;
-      birthdaySound.pause();
-      birthdaySound.currentTime = 0;
+    }
+
+    function sendLove() {
+      createHearts();
+      createFloatingPics();
+      playLoveSound();
     }
     
     // Create floating hearts
@@ -566,8 +386,7 @@
         }, i * 200);
       }
     }
-    
-    // Create floating pictures
+
     function createFloatingPics() {
       for (let i = 0; i < 10; i++) {
         setTimeout(() => {
@@ -577,8 +396,11 @@
           img.style.left = Math.random() * 100 + 'vw';
           img.style.animationDuration = (Math.random() * 5 + 8) + 's';
           document.querySelector('.floating-elements').appendChild(img);
-          
+
           img.addEventListener('animationend', () => {
+            img.remove();
+          });
+          img.addEventListener('error', () => {
             img.remove();
           });
         }, i * 300);
@@ -629,3 +451,4 @@
   </script>
 </body>
 </html>
+
